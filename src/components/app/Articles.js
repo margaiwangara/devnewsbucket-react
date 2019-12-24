@@ -1,17 +1,27 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../context/appContext";
 
-export default function Articles() {
-  const result = useContext(AppContext);
+// components
+import Article from "./Article";
 
-  const display = result
-    ? result.data.map(article => (
-        <ul key={article._id}>
-          <li>{article.title}</li>
-          <li>{article.summary}</li>
-          <li>{article.datePublished}</li>
-        </ul>
-      ))
-    : null;
-  return <>{display}</>;
+export default function Articles() {
+  // const result = useContext(AppContext);
+
+  // const display = result
+  //   ? result.data.map(article => (
+  //       <Article key={article._id} article={article} />
+  //     ))
+  //   : null;
+  return (
+    <div>
+      {/* {display} */}
+      some data
+    </div>
+  );
 }
+
+/**
+ *
+ * Navbar - width 100% height: 30px;
+ * Mobile = column, left links, but bottom
+ */
