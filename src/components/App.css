@@ -2,7 +2,7 @@
   --primary: #255957;
   --secondary: #eeebd3;
   --body-bg: #dfebce80;
-  --primary-dimmed: #25595780;
+  --primary-dimmed: rgba(37, 89, 87, 0.502);
 }
 * {
   padding: 0;

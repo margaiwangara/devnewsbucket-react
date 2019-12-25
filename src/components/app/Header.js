@@ -13,6 +13,7 @@ import { ReactComponent as TogglerIcon } from "../../assets/icons/bars.svg";
 
 // components
 import Articles from "./Articles";
+import Home from "./Home";
 import { colors } from "../../utils/cssvars";
 
 export default function Header() {
@@ -28,10 +29,10 @@ export default function Header() {
           <NavbarLink to="/articles">articles</NavbarLink>
         </NavbarBottom>
       </Navbar>
-      <Switch>
-        <Route exact path="/" component={Articles} />
+      {/* <Switch>
+        <Route exact path="/" component={Home} />
         <Route exact path="/articles" component={Articles} />
-      </Switch>
+      </Switch> */}
     </Router>
   );
 }
