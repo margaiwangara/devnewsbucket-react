@@ -1,41 +1,61 @@
-import React from "react";
+import React, { useContext } from "react";
+import moment from "moment";
 import styled from "styled-components";
+
+import { AppContext } from "../../context/appContext";
 
 // colors
 import { colors } from "../../utils/cssvars";
 
 export default function CardContainer() {
+  const articlesContext = useContext(AppContext);
+
   return (
     <Container>
-      <MainCard>
-        <CardTop>
-          <CardTopImg
-            src="https://source.unsplash.com/random/1280x720"
-            alt="post-image"
-          />
-          <CardTopOverlay />
-        </CardTop>
-        <CardBody>
-          <CardTitle>Lorem ipsum dolor sit amet.</CardTitle>
-          <CardDetails>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et
-            distinctio nulla aliquid officiis quod doloribus!
-          </CardDetails>
-          <CardBodyBottom>
-            <CardBodyBottomDetails>php > laravel</CardBodyBottomDetails>
-            <CardBodyBottomDetails>25th Dec 2019</CardBodyBottomDetails>
-          </CardBodyBottom>
-        </CardBody>
-      </MainCard>
+      {articlesContext
+        ? articlesContext.data.map(value => {
+            return (
+              <MainCard key={value._id}>
+                <CardTop>
+                  <CardTopImg src={value.image} alt="post-image" />
+                  <CardTopOverlay />
+                </CardTop>
+                <CardBody>
+                  <CardTitle>{value.title}</CardTitle>
+                  <CardDetails>{value.summary}</CardDetails>
+                  <CardBodyBottom>
+                    <CardBodyBottomDetails>
+                      {value.language.name}
+                      {value.language.framework
+                        ? " > " + value.language.framework
+                        : null}
+                    </CardBodyBottomDetails>
+                    <CardBodyBottomDetails>
+                      {moment(new Date(value.datePublished)).format(
+                        "Do MMM YYYY"
+                      )}
+                    </CardBodyBottomDetails>
+                  </CardBodyBottom>
+                </CardBody>
+              </MainCard>
+            );
+          })
+        : null}
     </Container>
   );
 }
 
 const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 300px;
+  grid-template-rows: auto;
   max-width: 100%;
   margin: 10px 0;
+
+  @media all and screen(min-width: 768px) {
+    grid-template-columns: repeat(3, 300px);
+    grid-column-gap: 10px;
+  }
 `;
 
 const MainCard = styled.div`
@@ -44,7 +64,8 @@ const MainCard = styled.div`
   min-height: 250px;
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 33%;
+  margin-bottom: 15px;
 `;
 
 const CardTop = styled.div`
