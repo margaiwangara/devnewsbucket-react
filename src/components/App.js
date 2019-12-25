@@ -4,6 +4,7 @@ import "./App.css";
 
 // components
 import Header from "./app/Header";
+import Home from "./app/Home";
 import styled from "styled-components";
 
 // colors
@@ -14,6 +15,7 @@ function App() {
     <AppContainer>
       <Wrapper>
         <Header />
+        <Home />
       </Wrapper>
     </AppContainer>
   );
