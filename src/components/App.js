@@ -6,6 +6,9 @@ import "./App.css";
 import Header from "./app/Header";
 import styled from "styled-components";
 
+// colors
+import { colors } from "../utils/cssvars";
+
 function App() {
   return (
     <AppContainer>
@@ -16,14 +19,14 @@ function App() {
   );
 }
 
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #e6ebe0;
-  min-height: 100vh;
-  width: 100%;
+const Wrapper = styled.main`
+  max-width: 100%;
   overflow-x: hidden;
+  background: ${colors.bodyBg};
+  min-height: 100vh;
+  font-family: "Raleway", sans-serif;
+  font-size: ${25 / 16}rem;
+  color: ${colors.secondary};
 `;
 
 export default App;

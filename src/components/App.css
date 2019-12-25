@@ -1,3 +1,9 @@
+:root {
+  --primary: #255957;
+  --secondary: #eeebd3;
+  --body-bg: #dfebce80;
+  --primary-dimmed: #25595780;
+}
 * {
   padding: 0;
   margin: 0;
